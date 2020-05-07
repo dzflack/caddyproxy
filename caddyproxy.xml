@@ -1,0 +1,59 @@
+<?xml version="1.0" ?>
+<Container version="2">
+    <Name>caddyproxy</Name>
+    <Repository>dzflack/caddyproxy</Repository>
+    <Registry>https://hub.docker.com/r/dzflack/caddyproxy</Registry>
+    <Network>host</Network>
+    <Shell>sh</Shell>
+    <Privileged>true</Privileged>
+    <Support></Support>
+    <Project>https://github.com/dzflack/caddyproxy</Project>
+    <Overview>Caddy Proxy</Overview>
+    <WebUI>https://[IP]</WebUI>
+    <TemplateURL />
+    <Icon>https://user-images.githubusercontent.com/1128849/36338535-05fb646a-136f-11e8-987b-e6901e717d5a.png</Icon>
+    <ExtraParams />
+    <PostArgs />
+    <DonateText />
+    <DonateLink />
+    <Networking>
+        <Mode>host</Mode>
+        <Publish>
+            <Port>
+                <HostPort>443</HostPort>
+                <ContainerPort>443</ContainerPort>
+                <Protocol>tcp</Protocol>
+            </Port>
+        </Publish>
+    </Networking>
+    <Data>
+        <Volume>
+            <HostDir />
+            <ContainerDir>/usr/share/caddy</ContainerDir>
+            <Mode>rw</Mode>
+        </Volume>
+        <Volume>
+            <HostDir />
+            <ContainerDir>/data</ContainerDir>
+            <Mode>rw</Mode>
+        </Volume>
+        <Volume>
+            <HostDir />
+            <ContainerDir>/config</ContainerDir>
+            <Mode>rw</Mode>
+        </Volume>
+    </Data>
+    <Environment>
+        <Variable>
+            <Value>docker</Value>
+            <Name>VERSION</Name>
+            <Mode />
+        </Variable>
+    </Environment>
+    <Labels />
+    <Config Name="VERSION" Target="VERSION" Default="" Mode="" Description="VERSION" Type="Variable" Display="always" Required="false" Mask="false">docker</Config>
+    <Config Name="Web Root" Target="/usr/share/caddy" Default="" Mode="rw" Description="Caddy Web Root - /usr/share/caddy" Type="Path" Display="always" Required="true" Mask="false" />
+    <Config Name="Data Directory" Target="/data" Default="" Mode="rw" Description="Caddy Data Directory - /data" Type="Path" Display="always" Required="true" Mask="false" />
+    <Config Name="Config Directory" Target="/config" Default="" Mode="rw" Description="Caddy Config Directory - /config" Type="Path" Display="always" Required="true" Mask="false" />
+    <Config Name="Webui" Target="443" Default="443" Mode="tcp" Description="For access to the Caddy Root" Type="Port" Display="advanced" Required="false" Mask="false">443</Config>
+</Container>
