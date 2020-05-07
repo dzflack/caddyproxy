@@ -10,7 +10,7 @@
     <Project>https://github.com/dzflack/caddyproxy</Project>
     <Overview>Caddy Proxy</Overview>
     <WebUI>https://[IP]</WebUI>
-    <TemplateURL />
+    <TemplateURL>https://raw.githubusercontent.com/dzflack/caddyproxy/master/caddyproxy.xml</TemplateURL>
     <Icon>https://user-images.githubusercontent.com/1128849/36338535-05fb646a-136f-11e8-987b-e6901e717d5a.png</Icon>
     <ExtraParams />
     <PostArgs />
