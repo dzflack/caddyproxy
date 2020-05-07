@@ -34,6 +34,11 @@
         </Volume>
         <Volume>
             <HostDir />
+            <ContainerDir>/etc/caddy/Caddyfile</ContainerDir>
+            <Mode>rw</Mode>
+        </Volume>
+        <Volume>
+            <HostDir />
             <ContainerDir>/data</ContainerDir>
             <Mode>rw</Mode>
         </Volume>
@@ -53,6 +58,7 @@
     <Labels />
     <Config Name="VERSION" Target="VERSION" Default="" Mode="" Description="VERSION" Type="Variable" Display="always" Required="false" Mask="false">docker</Config>
     <Config Name="Web Root" Target="/usr/share/caddy" Default="" Mode="rw" Description="Caddy Web Root - /usr/share/caddy" Type="Path" Display="always" Required="true" Mask="false" />
+    <Config Name="Caddyfile" Target="/etc/caddy/Caddfile" Default="" Mode="rw" Description="Caddyfile - /etc/caddy/Caddyfile" Type="Path" Display="always" Required="true" Mask="false" />
     <Config Name="Data Directory" Target="/data" Default="" Mode="rw" Description="Caddy Data Directory - /data" Type="Path" Display="always" Required="true" Mask="false" />
     <Config Name="Config Directory" Target="/config" Default="" Mode="rw" Description="Caddy Config Directory - /config" Type="Path" Display="always" Required="true" Mask="false" />
     <Config Name="Webui" Target="443" Default="443" Mode="tcp" Description="For access to the Caddy Root" Type="Port" Display="advanced" Required="false" Mask="false">443</Config>
