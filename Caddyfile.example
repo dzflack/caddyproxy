@@ -1,19 +1,56 @@
 {
+    # Prevent caddy from using port 80
     http_port 8000
 }
 
-wow.noways.com {                       
+(cloudflare_config) {
     tls {
-        dns cloudflare <key_here>
+        dns cloudflare <token_here>
     }
+}
 
+index.coolwebsitehere.com {
+    import cloudflare_config
+    file_server
     root * /usr/share/caddy
 }
 
-awesome.yeahways.com {                       
-    tls {
-        dns cloudflare <key_here>J
-    }
+download.coolwebsitehere.com {
+    import cloudflare_config
+    reverse_proxy 127.0.0.1:6789
+}
 
-    reverse_proxy 192.168.1.1:8080
+movie.coolwebsitehere.com {
+    import cloudflare_config
+    reverse_proxy 127.0.0.1:7878
+}
+
+tv.coolwebsitehere.com {
+    import cloudflare_config
+    reverse_proxy 127.0.0.1:8989
+}
+
+plex.coolwebsitehere.com {
+    import cloudflare_config
+    reverse_proxy 127.0.0.1:32400
+}
+
+pihole.coolwebsitehere.com {
+    import cloudflare_config
+    reverse_proxy 10.0.0.3:80
+}
+
+unifi.coolwebsitehere.com {
+    import cloudflare_config
+    reverse_proxy 10.0.0.2:8443 {
+        transport http {
+            tls_insecure_skip_verify
+            read_buffer 8192
+        }
+    }
+}
+
+unraid.coolwebsitehere.com {
+    import cloudflare_config
+    reverse_proxy 10.0.0.8:80
 }
